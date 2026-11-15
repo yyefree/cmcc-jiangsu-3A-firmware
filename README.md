@@ -66,7 +66,7 @@
 | `CM311-1A_M401A_jiangsu_A9_slim.img` | 1,176,237,125 bytes（约 1.10 GiB） | **精简版（推荐）**，6 个大分区以 Android sparse 承载，AML-IMAGE ver=2，40 entry |
 | `CM311-1A_M401A_jiangsu_A9_full_backup.img` | 4,090,276,705 bytes（约 3.81 GiB） | 完整版，17 个分区全部 raw 写入 |
 | `flash-package.md5` / `flash-package.sha256` | — | 整包校验值 |
-| `flash-tools/` | — | `Amlogic USB Burning Tool v2.2.0.exe` + 短接点位置图 |
+| `flash-tools/` | — | `Amlogic USB Burning Tool v2.2.0.exe` + 短接点位置图（Release 附件，不入库） |
 | [docs/flash-package.md](docs/flash-package.md) | — | 封装结构、分区清单、校验记录、烧录步骤与风险 |
 
 两个包写入的 17 个分区一致：boot / cache / cri_data / dtbo / ghost / logo / metadata / misc / odm / param / product / recovery / rsv / system / tee / vbmeta / vendor
