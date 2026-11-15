@@ -1,0 +1,22 @@
+/dev/block/platform/ffe07000.emmc/by-name
+boot -> /dev/block/boot (179,11)      16 MiB
+bootloader -> /dev/block/bootloader (179,1)    4 MiB
+cache -> /dev/block/cache (179,3)     1120 MiB
+cri_data -> /dev/block/cri_data (179,9)  8 MiB
+data -> /dev/block/data (179,21)       112.4 GiB
+dtbo -> /dev/block/dtbo (179,8)       8 MiB
+env -> /dev/block/env (179,4)         8 MiB
+ghost -> /dev/block/ghost (179,20)    768 MiB
+logo -> /dev/block/logo (179,5)       8 MiB
+metadata -> /dev/block/metadata (179,13)  16 MiB
+misc -> /dev/block/misc (179,7)       8 MiB
+odm -> /dev/block/odm (179,17)        128 MiB
+param -> /dev/block/param (179,10)    16 MiB
+product -> /dev/block/product (179,19)  128 MiB
+recovery -> /dev/block/recovery (179,6)  24 MiB
+reserved -> /dev/block/reserved (179,2)  64 MiB
+rsv -> /dev/block/rsv (179,12)        16 MiB
+system -> /dev/block/system (179,18)  1280 MiB
+tee -> /dev/block/tee (179,15)        32 MiB
+vbmeta -> /dev/block/vbmeta (179,14)  2 MiB
+vendor -> /dev/block/vendor (179,16)  320 MiB

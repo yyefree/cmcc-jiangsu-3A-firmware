@@ -1,0 +1,6 @@
+init=/init console=ttyS0,115200 no_console_suspend earlyprintk=aml-uart,0xff803000 ramoops.pstore_en=1 ramoops.record_size=0x8000 ramoops.console_size=0x4000 hdr_policy=1 hdr_priority= otg_device=0 reboot_mode_android=normal logo=osd0,loaded,0x3d800000 fb_width=1280 fb_height=720 display_bpp=24 outputmode=720p50hz vout=720p50hz,enable panel_type=lcd_1 lcd_ctrl=0x00000000 hdmitx=,444,8bit hdmimode=720p50hz hdmichecksum= dolby_vision_on=0 frac_rate_policy=0 hdmi_read_edid=1 cvbsmode=576cvbs osd_reverse=0 video_reverse=0 irq_check_en=0 androidboot.selinux=permissive androidboot.firstboot=0 jtag=disable loglevel=0 androidboot.boardid=7 androidboot.hardware=amlogic androidboot.bootloader= androidboot.build.expect.baseband=N/A mac=b6:72:58:6e:36:4e androidboot.mac=b6:72:58:6e:36:4e androidboot.oem.key1=ATV00104319 androidboot.rpmb_state=0 rootfstype=ramfs androidboot.dtbo_idx=0 buildvariant=userdebug
+
+9
+Fri Dec 10 20:39:16 HKT 2021
+armeabi-v7a
+CM311-1A/M401A/M401A:9/PPR1.180610.011/V.955.05:userdebug/test-keys
