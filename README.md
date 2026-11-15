@@ -37,7 +37,7 @@
 - 共 **24 个镜像**：20 个 `by-name` 分区（除 `data`）+ `mmcblk0boot0/1` + `mmcblk0` 头 32 MiB / 尾 8 MiB
 - 解压后合计 **4,217,372,672 bytes**，gz 合计 **587,526,023 bytes**
 
-对应 Release：见仓库右侧 Releases 页面。
+对应 Release：**[v1.0 — CM311-1A / M401A 原厂分区备份](https://github.com/yyefree/cmcc-jiangsu-3A-firmware/releases/tag/v1.0)**（24 个 `img.gz` + `md5sum.txt`）
 
 ## 恢复 / 救砖
 
