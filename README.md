@@ -53,6 +53,38 @@
 
 对应 Release：**[v1.0 — CM311-1A / M401A 原厂分区备份](https://github.com/yyefree/cmcc-jiangsu-3A-firmware/releases/tag/v1.0)**（24 个 `img.gz` + `md5sum.txt`）
 
+线刷镜像（完整版 3.81 GiB / 精简版 1.10 GiB）另见：
+
+- **[v1.1 — 线刷包（精简版 + 完整版）](https://github.com/yyefree/cmcc-jiangsu-3A-firmware/releases/tag/v1.1-flash)**
+
+## 线刷包（Amlogic，本地生成）
+
+在上述分区级备份基础上，已重新封装出可直接用于 `Amlogic USB Burning Tool` 的线刷包，提供 **完整版** 与 **精简版** 两个 `.img`：
+
+| 文件 | 体积 | 说明 |
+|---|---|---|
+| `CM311-1A_M401A_jiangsu_A9_slim.img` | 1,176,237,125 bytes（约 1.10 GiB） | **精简版（推荐）**，6 个大分区以 Android sparse 承载，AML-IMAGE ver=2，40 entry |
+| `CM311-1A_M401A_jiangsu_A9_full_backup.img` | 4,090,276,705 bytes（约 3.81 GiB） | 完整版，17 个分区全部 raw 写入 |
+| `flash-package.md5` / `flash-package.sha256` | — | 整包校验值 |
+| `flash-tools/` | — | `Amlogic USB Burning Tool v2.2.0.exe` + 短接点位置图 |
+| [docs/flash-package.md](docs/flash-package.md) | — | 封装结构、分区清单、校验记录、烧录步骤与风险 |
+
+两个包写入的 17 个分区一致：boot / cache / cri_data / dtbo / ghost / logo / metadata / misc / odm / param / product / recovery / rsv / system / tee / vbmeta / vendor
+
+- 精简版对 `system` / `vendor` / `product` / `odm` / `cache` / `ghost` 六项使用 sparse（`ftype=0x0FE`，blk 4096，全零块折叠为 don't-care），其余 11 项仍为 raw
+- 精简版展开后与完整版内容逐字节一致，17 个分区 sha1 全部校验通过；头部 CRC32 自校验 OK（`0x908ba3b8`）
+- 完整版头部 CRC32 自校验 OK（`0xdf2abb3d`）
+- 两个包均不含 `data`、`bootloader`、`reserved`、`env`、`mmcblk0` 头尾段与 `mmcblk0boot0/1`
+
+| 分区 | 精简版 payload | 展开后 |
+|---|---|---|
+| system | 676.96 MiB | 1280 MiB |
+| vendor | 233.33 MiB | 320 MiB |
+| product | 51.25 MiB | 128 MiB |
+| odm | 0.46 MiB | 128 MiB |
+| cache | 2.96 MiB | 1120 MiB |
+| ghost | 0.00 MiB | 768 MiB |
+
 ## 恢复 / 救砖
 
 > **高风险**：回写会覆盖目标分区，操作失误可导致设备无法开机。请确认设备型号与本仓库一致。
@@ -99,7 +131,8 @@ adb shell "tail -f /data/local/tmp/fw/job.log"   # 观察进度
 
 ## 已知门槛
 
-- **不是 Amlogic 线刷包**。本仓库是分区级裸镜像，不能直接喂给 `USB Burning Tool`；要线刷需用 `aml_image_packer` / Amlogic CustomizationTool 按分区表重新封装。
+- **线刷走本地生成的 `*.img`**（见上节 [线刷包](#线刷包amlogic本地生成)）；GitHub Release 里的 `.img.gz` 仍是分区级裸镜像，适用于 adb + `dd` 回写。
+- 精简版的 sparse 标注沿用同型号厂商包的做法，**未在真机上烧录验证**；保守起见可先用 3.81 GiB 完整版确认引导链，或备好短接点位。
 - `data`（`mmcblk0p21`）不包含在备份中，回写后需 `wipe data`。
 - `cache`（`mmcblk0p3`）为可重建分区，可选恢复。
 - `mmcblk0_head32M.img.gz` / `mmcblk0_tail8M.img.gz` 为 GPT 主备表，仅在分区表损坏时使用。

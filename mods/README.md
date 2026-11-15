@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: 09f8934c4e2b37dbc283faae4b8c58a5_d4ee2dade10211f189bc525400248c00
+    ReservedCode1: JRYJY5v2n7msb8NP/4yNQMG4kyTV3oXw1BYGia3K3TuFrsZUTF+P3qgAwK7wmhem9j50WKaJyP+j4IWXfIcLUCxFVImPjql+rwt8PbIVoq5H1ggVGz52Eww0m6gIsyPltiPhFS6Kbj+f0V/70s52irrOjplowv2Shom7PplUER/Up1lJzCueIM5buHA=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: 09f8934c4e2b37dbc283faae4b8c58a5_d4ee2dade10211f189bc525400248c00
+    ReservedCode2: JRYJY5v2n7msb8NP/4yNQMG4kyTV3oXw1BYGia3K3TuFrsZUTF+P3qgAwK7wmhem9j50WKaJyP+j4IWXfIcLUCxFVImPjql+rwt8PbIVoq5H1ggVGz52Eww0m6gIsyPltiPhFS6Kbj+f0V/70s52irrOjplowv2Shom7PplUER/Up1lJzCueIM5buHA=
+---
+
 # mods/ — 系统改动脚本
 
 本目录存放对原厂系统的全部改动脚本，**均在设备上实测通过**。完整说明见 [docs/system-mods.md](../docs/system-mods.md)。
@@ -44,3 +55,4 @@ adb reboot
 
 无需脚本，直接在遥控器上按 **上 上 下 下 左 右 左 右 菜单**（KeyCode `19,19,20,20,21,22,21,22,82`）。
 详见 [docs/system-mods.md#3-遥控器彩蛋开启-adb原厂内置无需改动](../docs/system-mods.md)。
+*（内容由AI生成，仅供参考）*

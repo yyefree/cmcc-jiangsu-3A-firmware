@@ -1,0 +1,6 @@
+# 大体积线刷镜像：走 GitHub Release 附件，不入库
+*.img
+*.img.gz
+
+# 烧录工具与图片：走 Release 附件
+flash-tools/

@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: 09f8934c4e2b37dbc283faae4b8c58a5_c8929513e10211f1913b525400393706
+    ReservedCode1: dFYIVEJdteclPA4+u6DiJehgQRO3CGbbaPk8PNdp6AlMRiJG63kHQ6GCszhhvbdPwARTQVRQT1Pgd2tMbi1qOauJoxzVXzK+SHC+5k2R1f7d0mL8S2qeAXwCK7X+2G3rOya/60Kyi5EIUMlntCmMhfI3lEZN0OHiHh7BoMk+oo49qeOOzp18wSUiff8=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: 09f8934c4e2b37dbc283faae4b8c58a5_c8929513e10211f1913b525400393706
+    ReservedCode2: dFYIVEJdteclPA4+u6DiJehgQRO3CGbbaPk8PNdp6AlMRiJG63kHQ6GCszhhvbdPwARTQVRQT1Pgd2tMbi1qOauJoxzVXzK+SHC+5k2R1f7d0mL8S2qeAXwCK7X+2G3rOya/60Kyi5EIUMlntCmMhfI3lEZN0OHiHh7BoMk+oo49qeOOzp18wSUiff8=
+---
+
 # 系统改动说明 / System Modifications
 
 > 本文件记录对 CM311-1A / M401A（`cmcc_jiangsu`，Amlogic S905L3A，江苏移动定制）原厂 Android 9 系统所做的全部修改。
@@ -202,3 +213,4 @@ cmd package set-home-activity \
 | 电源键 | `cp /data/local/tmp/Vendor_0416_Product_0300.kl.bak` 回 `/vendor/usr/keylayout/` |
 | 讯飞组件 | 从 `/data/local/tmp/ifly_backup` 拷回原路径并 `chmod` / `restorecon` |
 | 桌面 | `adb install` 原厂 launcher APK，`cmd package set-home-activity` 指回 |
+*（内容由AI生成，仅供参考）*
