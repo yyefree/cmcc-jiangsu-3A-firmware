@@ -25,6 +25,20 @@
 
 见 [docs/partition-table.md](docs/partition-table.md)。
 
+## 系统改动
+
+本仓库除原厂镜像外，还记录了在本机上完成的可用性改造 —— 既给出脚本，也给出**验证方式与回退路径**。完整说明见 **[docs/system-mods.md](docs/system-mods.md)**，脚本见 [`mods/`](mods/)。
+
+| 改动 | 一句话说明 | 触及分区 | 脚本 / 操作 |
+|---|---|---|---|
+| **清理 PCDN** | 原厂内置 `systemcore` 看护进程不断拉起 `st_plugin_*` 载荷，将盒子带宽与存储用于 PCDN 挖矿。通过 hosts 屏蔽 32 个控制/分发域名 + 删除 `/system` 与 `/data` 双侧载荷 + 卸载宿主 APK 彻底清除，**重启后复验**无残留 | `/system`、`/data` | [`mods/pcdn/`](mods/pcdn/) |
+| **恢复遥控器电源键** | 原厂在 `Vendor_0416_Product_0300.kl` 第 138 行把 `key 116 POWER` 注释掉了，导致遥控器电源键无响应。取消注释后重启生效 | `/vendor` | [`mods/keylayout/fix-power-key.sh`](mods/keylayout/fix-power-key.sh) |
+| **遥控器彩蛋开 ADB** | 系统内置序列 **上→上→下→下→左→右→左→右→菜单**（`UDUDLRLRM`，KeyCode `19,19,20,20,21,22,21,22,82`），可在无 USB 键盘时打开 ADB。9 键滚动缓冲区匹配，无时间窗限制 | 无（原厂功能） | 遥控器直接按 |
+| 清除讯飞语音组件 | 移除常驻的 `xiriservice`，降低内存与联网占用（副作用：语音键失效） | `/system` | 见 docs |
+| 替换原厂桌面 | `com.bxy.tvlauncher` 会回写 `plugin_task_list` 复活 PCDN 插件，改用 `com.oversea.aslauncher` | `/data` | 见 docs |
+
+> 电源键与彩蛋可以同时使用：电源键短按待机、长按电源菜单；ADB 打开后 `adb connect <IP>:5555` 即可接管。
+
 ## 下载
 
 镜像体积超出 GitHub 仓库单文件限制，全部以 **Release 附件** 形式提供：
